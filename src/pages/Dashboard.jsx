@@ -132,7 +132,7 @@ const Dashboard = () => {
                                         <span className="text-gray-500 dark:text-gray-400 text-sm">{scan.type}</span>
                                     </td>
                                     <td className="px-6 py-5">
-                                        <Badge variant={scan.status.toLowerCase() as any}>
+                                        <Badge variant={scan.status.toLowerCase()}>
                                             {scan.status}
                                         </Badge>
                                     </td>

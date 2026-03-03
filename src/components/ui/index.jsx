@@ -1,18 +1,12 @@
-import { forwardRef, type FC, type ButtonHTMLAttributes, type InputHTMLAttributes, type HTMLAttributes, type ReactNode } from 'react';
-import { clsx, type ClassValue } from 'clsx';
+import { forwardRef } from 'react';
+import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-export function cn(...inputs: ClassValue[]) {
+export function cn(...inputs) {
     return twMerge(clsx(inputs));
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
-    size?: 'sm' | 'md' | 'lg' | 'icon';
-    isLoading?: boolean;
-}
-
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef(
     ({ className, variant = 'primary', size = 'md', isLoading, children, ...props }, ref) => {
         const variants = {
             primary: 'bg-primary text-white hover:bg-primary-dark shadow-sm',
@@ -55,7 +49,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = 'Button';
 
-export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
+export const Input = forwardRef(
     ({ className, ...props }, ref) => {
         return (
             <input
@@ -72,11 +66,7 @@ export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
 
 Input.displayName = 'Input';
 
-interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
-    variant?: 'critical' | 'high' | 'medium' | 'low' | 'completed' | 'scheduled' | 'failed' | 'default';
-}
-
-export const Badge: FC<BadgeProps> = ({ className, variant = 'default', ...props }) => {
+export const Badge = ({ className, variant = 'default', ...props }) => {
     const variants = {
         critical: 'bg-severity-critical/10 text-severity-critical border-severity-critical/20',
         high: 'bg-severity-high/10 text-severity-high border-severity-high/20',
@@ -100,7 +90,7 @@ export const Badge: FC<BadgeProps> = ({ className, variant = 'default', ...props
     );
 };
 
-export const Card = ({ className, children }: { className?: string; children: ReactNode }) => (
+export const Card = ({ className, children }) => (
     <div className={cn('bg-white dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl shadow-sm', className)}>
         {children}
     </div>

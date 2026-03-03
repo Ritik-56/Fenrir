@@ -23,7 +23,7 @@ import { logEntries, findings } from '../data/mockData';
 import { toast } from 'sonner';
 
 const ScanDetail = () => {
-    const { id: _id } = useParams<{ id: string }>();
+    const { id: _id } = useParams();
     const [activeTab, setActiveTab] = useState('activity');
     const [scanStep, setScanStep] = useState(0);
     const [progress, setProgress] = useState(0);

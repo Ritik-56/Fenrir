@@ -1,19 +1,4 @@
-export interface Scan {
-    id: string;
-    name: string;
-    type: 'Greybox' | 'Blackbox';
-    status: 'Completed' | 'Scheduled' | 'Failed';
-    progress: number;
-    vulnerabilities: {
-        critical: number;
-        high: number;
-        medium: number;
-        low: number;
-    };
-    lastScan: string;
-}
-
-export const mockScans: Scan[] = [
+export const mockScans = [
     {
         id: '1',
         name: 'Web App Servers',
@@ -60,10 +45,10 @@ for (let i = 0; i < 6; i++) {
 }
 
 export const stats = [
-    { label: 'Critical Severity', count: 86, change: '+2% increase than yesterday', variant: 'critical' as const },
-    { label: 'High Severity', count: 16, change: '+0.9% increase than yesterday', variant: 'high' as const },
-    { label: 'Medium Severity', count: 26, change: '+0.9% decrease than yesterday', variant: 'medium' as const },
-    { label: 'Low Severity', count: 16, change: '+0.9% increase than yesterday', variant: 'low' as const },
+    { label: 'Critical Severity', count: 86, change: '+2% increase than yesterday', variant: 'critical' },
+    { label: 'High Severity', count: 16, change: '+0.9% increase than yesterday', variant: 'high' },
+    { label: 'Medium Severity', count: 26, change: '+0.9% decrease than yesterday', variant: 'medium' },
+    { label: 'Low Severity', count: 16, change: '+0.9% increase than yesterday', variant: 'low' },
 ];
 
 export const logEntries = [
@@ -79,7 +64,7 @@ export const logEntries = [
 export const findings = [
     {
         id: 'f1',
-        severity: 'critical' as const,
+        severity: 'critical',
         title: 'SQL Injection in Authentication Endpoint',
         path: '/api/users/profile',
         time: '10:45:23',
@@ -87,7 +72,7 @@ export const findings = [
     },
     {
         id: 'f2',
-        severity: 'high' as const,
+        severity: 'high',
         title: 'Unauthorized Access to User Metadata',
         path: '/api/auth/login',
         time: '10:45:23',
@@ -95,7 +80,7 @@ export const findings = [
     },
     {
         id: 'f3',
-        severity: 'medium' as const,
+        severity: 'medium',
         title: 'Broken Authentication Rate Limiting',
         path: '/api/search',
         time: '10:45:23',

@@ -25,12 +25,7 @@ const secondaryNav = [
     { icon: LifeBuoy, label: 'Support', path: '/support' },
 ];
 
-interface SidebarProps {
-    isOpen: boolean;
-    onToggle: () => void;
-}
-
-export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
+export const Sidebar = ({ isOpen, onToggle }) => {
     return (
         <>
             {/* Mobile Overlay */}
